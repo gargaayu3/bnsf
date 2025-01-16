@@ -1,115 +1,183 @@
-/* styles.css */
+<!DOCTYPE html>
+<html lang="hi">
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>भारतीय नारी शक्ति फाउंडेशन</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
 
-header {
-    background: linear-gradient(90deg, #ff6f61, #ff8e72);
-    color: #fff;
-    text-align: center;
-    padding: 2rem 0;
-}
+        .slides {
+            display: none;
+        }
 
-header h1 {
-    font-size: 2.5rem;
-    margin: 0;
-}
+        .slides img {
+            width: 100%;
+            height: auto;
+        }
 
-header p {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-}
+        .arrow {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            user-select: none;
+            transform: translateY(-50%);
+        }
 
-nav {
-    background: #333;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-}
+        .prev {
+            left: 10px;
+        }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 1.5rem;
-    font-weight: bold;
-}
+        .next {
+            right: 10px;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        .dot-container {
+            text-align: center;
+            position: relative;
+            top: -30px;
+        }
 
-.hero {
-    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 4rem 1rem;
-}
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
 
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
+        .active {
+            background-color: #ff6f61;
+        }
+    </style>
+</head>
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
+<body>
+    <header>
+        <h1>भारतीय नारी शक्ति फाउंडेशन</h1>
+        <p>महिलाओं को सशक्त बनाना, जीवन बदलना</p>
+    </header>
 
-section {
-    padding: 2rem;
-    text-align: center;
-}
+    <nav>
+        <a href="#about">हमारे बारे में</a>
+        <a href="#projects">परियोजनाएँ</a>
+        <a href="#join">हमसे जुड़ें</a>
+        <a href="#contact">संपर्क करें</a>
+    </nav>
 
-section h3 {
-    font-size: 1.8rem;
-    color: #ff6f61;
-    margin-bottom: 1rem;
-}
+    <div class="hero">
+        <h2>साथ मिलकर, हम महिलाओं को सशक्त करते हैं</h2>
+        <p>हमारे मिशन में शामिल हों और पूरे देश में महिलाओं के लिए उज्जवल भविष्य बनाएं।</p>
+    </div>
 
-section p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
+    <div class="slideshow-container">
+        <div class="slides">
+            <img src="photo1.jpg" alt="Photo 1">
+        </div>
+        <div class="slides">
+            <img src="photo2.jpg" alt="Photo 2">
+        </div>
+        <div class="slides">
+            <img src="photo3.jpg" alt="Photo 3">
+        </div>
+        <div class="slides">
+            <img src="photo4.jpg" alt="Photo 4">
+        </div>
+        <div class="slides">
+            <img src="photo5.jpg" alt="Photo 5">
+        </div>
 
-.cta {
-    background: #ff6f61;
-    color: #fff;
-    text-align: center;
-    padding: 2rem 1rem;
-}
+        <a class="arrow prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="arrow next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
 
-.cta a {
-    background: #fff;
-    color: #ff6f61;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
 
-.cta a:hover {
-    background: #333;
-    color: #fff;
-}
+    <section id="about">
+        <h3>हमारे बारे में</h3>
+        <p>भारतीय नारी शक्ति फाउंडेशन शिक्षा, स्वास्थ्य और आर्थिक अवसरों के माध्यम से महिलाओं को सशक्त बनाने के लिए समर्पित है। हमारे प्रयास महिलाओं और उनके परिवारों को सशक्त बनाकर एक समावेशी समाज का निर्माण करते हैं।</p>
+    </section>
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+    <section id="projects">
+        <h3>हमारी परियोजनाएँ</h3>
+        <p>हम व्यावसायिक प्रशिक्षण, स्वास्थ्य जांच और जागरूकता अभियानों सहित कई कार्यक्रम चलाते हैं, जो महिलाओं और बच्चों के समग्र विकास को सुनिश्चित करते हैं।</p>
+    </section>
 
-footer p {
-    margin: 0;
-}
+    <section id="join">
+        <h3>हमारे मिशन में शामिल हों</h3>
+        <p>परिवर्तन का हिस्सा बनें! हमारे साथ सदस्य बनें या स्वयंसेवक के रूप में जुड़ें और जरूरतमंद महिलाओं के जीवन में बदलाव लाएँ।</p>
+    </section>
+
+    <div class="cta">
+        <h3>बदलाव लाने के लिए तैयार?</h3>
+        <a href="#contact">आज ही संपर्क करें</a>
+    </div>
+
+    <section id="contact">
+        <h3>संपर्क करें</h3>
+        <p>ईमेल: info@bharatiyanarishakti.org</p>
+        <p>फोन: +91-123-456-7890</p>
+        <p>पता: 123 सशक्तिकरण लेन, नई दिल्ली, भारत</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 भारतीय नारी शक्ति फाउंडेशन। सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        function plusSlides(n) {
+            slideIndex += n - 1;
+            showSlides();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n - 1;
+            showSlides();
+        }
+    </script>
+</body>
+
+</html>
